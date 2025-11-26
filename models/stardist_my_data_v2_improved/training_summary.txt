@@ -1,0 +1,38 @@
+
+============================================================
+TRAINING SUMMARY - stardist_my_data_v2_improved
+============================================================
+
+📊 DATASET:
+   Training images: 174
+   Validation images: 59
+   Total images: 233
+
+⚙️ CONFIGURATION:
+   n_rays: 64
+   grid: (2, 2)
+   patch_size: (256, 256)
+   epochs: 150
+   steps_per_epoch: 200
+   batch_size: 4
+   learning_rate: 0.0003
+   GPU: True
+
+🎨 AUGMENTATION:
+   Type: Strong (rotation+flip+elastic+brightness+contrast+noise)
+   Rotation: 0-360°
+   Elastic: α=30, σ=5
+   Brightness: ±30%
+   Contrast: ±20%
+
+📈 RESULTS:
+   AP@0.5: 0.802
+   AP@0.6: 0.814
+   AP@0.7: 0.832
+   AP@0.8: 0.862
+   AP@0.9: 0.916
+
+🎯 PERFORMANCE:
+   ⭐⭐ VERY GOOD!
+
+============================================================
