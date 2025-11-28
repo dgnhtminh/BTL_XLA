@@ -1,0 +1,16 @@
+{
+  "date": "2025-11-28T16:38:09.744797",
+  "parameters": {
+    "min_cell_size": 50,
+    "max_cell_size": 5000,
+    "min_circularity": 0.3,
+    "gaussian_sigma": 1.5,
+    "distance_threshold": 0.4
+  },
+  "statistics": {
+    "total_processed": 59,
+    "cells_detected": 11048,
+    "noise_removed": 6409,
+    "cells_merged": 0
+  }
+}

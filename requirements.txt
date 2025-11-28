@@ -1,0 +1,23 @@
+# Requirements for StarDist Cell Detection Project
+
+# Core dependencies
+numpy>=1.21.0,<2.0.0
+scipy>=1.7.0
+scikit-image>=0.19.0
+Pillow>=9.0.0
+matplotlib>=3.5.0
+pandas>=1.4.0
+tqdm>=4.64.0
+
+# Deep learning
+tensorflow>=2.11.0
+stardist>=0.8.3
+csbdeep>=0.7.2
+
+# Image processing
+opencv-python-headless>=4.5.0,<4.10
+imgaug>=0.4.0
+
+# Jupyter (optional, for notebooks)
+jupyter>=1.0.0
+ipykernel>=6.0.0

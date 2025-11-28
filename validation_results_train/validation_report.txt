@@ -1,0 +1,42 @@
+======================================================================
+ANNOTATION QUALITY VALIDATION REPORT
+======================================================================
+
+Total images analyzed: 174
+
+SUMMARY STATISTICS
+----------------------------------------------------------------------
+
+Cell Count:
+  Old total:     23105 cells
+  New total:     32125 cells
+  Change:        9020 cells (+39.0%)
+
+Quality Improvements:
+  Very small cells removed: 33
+  Holes fixed:              0
+  Avg circularity change:   +0.003
+  Avg solidity improvement: -0.001
+
+TOP 10 MOST IMPROVED IMAGES (by noise removal):
+----------------------------------------------------------------------
+     image  old_n_cells  new_n_cells  small_removed
+frame_0507          142          171              4
+frame_0771          152          204              4
+frame_0837          134          169              3
+frame_0243          118          194              2
+frame_0419          143          180              2
+frame_0595          142          196              2
+frame_0661          157          191              2
+frame_0683          145          184              2
+frame_0015          129          210              1
+frame_0067          124          188              1
+
+IMAGES WITH POTENTIAL ISSUES (very few cells detected):
+----------------------------------------------------------------------
+No issues found.
+
+
+======================================================================
+END OF REPORT
+======================================================================
