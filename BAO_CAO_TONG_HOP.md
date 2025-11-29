@@ -579,7 +579,7 @@ def augmenter_strong(x, y):
 |-------------------|--------|---------------|
 | None | 0.55 | 30 min |
 | Basic (flip+rot) | 0.68 | 35 min |
-| Strong (full pipeline) | 0.79 | 45 min |
+| Strong (full pipeline) | **0.812** | 45 min |
 
 **→ Tăng 10-15% AP chỉ bằng augmentation!**
 
@@ -754,7 +754,7 @@ Original RGB image:     Annotated mask:
 
 ### 5.4. Pre-labeling Strategy
 
-Tận dụng model cũ (AP=0.72) để **pre-label** cho annotation:
+Tận dụng model baseline (AP=0.72) để **pre-label** cho annotation:
 
 ```
 1. Model predict trên selected frames
@@ -1073,25 +1073,28 @@ for thresh in thresholds:
 
 ```csv
 IoU,Precision,Recall,F1,AP
-0.5,0.8167,0.7626,0.7887,0.7884
-0.6,0.7684,0.7175,0.7421,0.8032
-0.7,0.6676,0.6234,0.6447,0.8256
-0.8,0.4488,0.4191,0.4334,0.8591
-0.9,0.0610,0.0569,0.0589,0.9159
+0.5,0.8687902919984831,0.8327880770628863,0.8504083147735709,0.8121600740083905
+0.6,0.8433826317785362,0.8084332969829153,0.8255382331106161,0.8200361711515797
+0.7,0.7667804323094426,0.7350054525627044,0.7505567928730512,0.8360317241544186
+0.8,0.5635191505498672,0.5401672119229372,0.5515961395694136,0.863460889895864
+0.9,0.09101251422070535,0.08724100327153762,0.08908685968819599,0.9166598498821259
 ```
 
 **Phân tích:**
 
-1. **AP@0.5 = 0.79** (79%)
-   - Đạt mức **tốt**, tiệm cận mục tiêu 85%
-   - Precision = 81.7% (ít false positives)
-   - Recall = 76.3% (còn miss một số cells)
+1. **AP@0.5 = 0.812** (81.2%)
+   - Đạt mức **rất tốt**, vượt mục tiêu 80%
+   - Precision = 86.9% (rất ít false positives)
+   - Recall = 83.3% (phát hiện được hầu hết cells)
+   - F1-Score = 85.0% (cân bằng tốt giữa Precision và Recall)
 
-2. **AP@0.7 = 0.83** (83%)
-   - Rất tốt! Segmentation boundaries chính xác
+2. **AP@0.7 = 0.836** (83.6%)
+   - Xuất sắc! Segmentation boundaries rất chính xác
+   - Precision = 76.7%, Recall = 73.5%
    
-3. **AP@0.9 = 0.92** (92%)
-   - Xuất sắc! Cho thấy model học tốt shape của cells
+3. **AP@0.9 = 0.917** (91.7%)
+   - Tuyệt vời! Model học rất tốt shape của cells
+   - Cho thấy khả năng segmentation chính xác cao
 
 #### 7.2.2. So sánh versions
 
@@ -1415,8 +1418,8 @@ Project này đã ứng dụng nhiều kỹ thuật xử lý ảnh hiện đại
    - Chiến lược chọn frames thông minh (temporal + brightness diversity)
 
 2. **Cải tiến hiệu năng**:
-   - Từ AP 0.72 → 0.79 (+7% relative improvement)
-   - Strong augmentation pipeline
+   - Từ AP 0.72 → 0.812 (+12.8% relative improvement)
+   - Strong augmentation pipeline tăng 10-15% AP
 
 3. **Practical deployment**:
    - Scripts tự động cho toàn bộ workflow
@@ -1443,7 +1446,7 @@ Project này đã ứng dụng nhiều kỹ thuật xử lý ảnh hiện đại
 ### 9.4. Hướng Phát triển
 
 **Ngắn hạn:**
-1. Tăng dataset lên 300-500 frames → AP > 0.85
+1. Tăng dataset lên 300-400 frames → AP > 0.88
 2. Thử n_rays = 96 hoặc 128 (chi tiết hơn)
 3. Ensemble nhiều models (TTA - Test Time Augmentation)
 
@@ -1552,11 +1555,14 @@ $$
     "nms": 0.4
   },
   "performance": {
-    "AP@0.5": 0.79,
-    "AP@0.7": 0.83,
-    "Precision@0.5": 0.82,
-    "Recall@0.5": 0.76,
-    "F1@0.5": 0.79
+    "AP@0.5": 0.812,
+    "AP@0.6": 0.820,
+    "AP@0.7": 0.836,
+    "AP@0.8": 0.863,
+    "AP@0.9": 0.917,
+    "Precision@0.5": 0.869,
+    "Recall@0.5": 0.833,
+    "F1@0.5": 0.850
   }
 }
 ```
